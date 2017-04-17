@@ -7,8 +7,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <style>
+    body {margin:0;}
+  </style>
   <body>
+  <div class="header">
+    <nav class="navigation top-bar fixed">
+      <ul>
+        <li><a href="#logo">9</a></li>
+        <li><a href="#hot">Hot</a></li>
+        <li><a href="#treding">Trending</a></li>
+        <li><a href="#fresh">Fresh</a></li>
+        <li><a href="#more">More</a></li>
+        <li style="float:right"><a class="btn-primary" href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </div>
     <%= yield %>
   </body>
 </html>
