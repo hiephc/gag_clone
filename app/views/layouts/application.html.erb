@@ -16,7 +16,17 @@
         <li><a href="#treding">Trending</a></li>
         <li><a href="#fresh">Fresh</a></li>
         <li><a href="#more">More</a></li>
-        <li style="float:right"><a class="btn-primary" href="#login">Login</a></li>
+        <li style="float:right">
+        <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+                Logout
+            <% end  %>
+        <% else %>
+            <%= link_to new_user_session_path do %>
+               Login
+            <% end  %>
+        <% end %>
+        </li>
       </ul>
     </nav>
   </div>
