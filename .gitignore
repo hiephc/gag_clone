@@ -19,4 +19,4 @@
 .idea
 /test/*
 /public/uploads/*
-
+!/!.coffee
