@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @photo.title %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @photo.image.thumb.url %>
-</p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<div class="post-wrap">
+  <div class="main-wrap">
+    <div class="post">
+      <div class="title">
+        <%= @photo.title %>
+      </div>
+      <div class="image">
+        <%= image_tag @photo.image.url %>
+      </div>
+      <div>32 points</div>
+      <div class="post-function">
+        <ul>
+          <li><a class="glyphicon glyphicon-chevron-up"></a></li>
+          <li><a class="glyphicon glyphicon-chevron-down"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="side-wrap">
+    <div class="image"><img src="https://img-9gag-fun.9cache.com/photo/a8y2o4e_460s_v1.jpg"></div>
+    <div class="image"><img src="https://img-9gag-fun.9cache.com/photo/a8y2o4e_460s_v1.jpg"></div>
+  </div>
+</div>
