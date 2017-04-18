@@ -11,11 +11,12 @@
   <div class="header">
     <nav class="navigation top-bar fixed">
       <ul>
-        <li><a href="#logo">9</a></li>
+        <li><%= link_to "9", root_path %></li>
         <li><a href="#hot">Hot</a></li>
         <li><a href="#treding">Trending</a></li>
         <li><a href="#fresh">Fresh</a></li>
         <li><a href="#more">More</a></li>
+        <li><%= link_to "Upload", new_photo_path %></li>
         <li style="float:right">
         <% if user_signed_in? %>
             <%= link_to destroy_user_session_path, method: :delete do %>
