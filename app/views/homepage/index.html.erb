@@ -1,17 +1,27 @@
 <div class="page">
   <div class="main-wrap">
-    <div class="post">
-      <div class="title">This is the title</div>
-      <div class="image"><img src="https://img-9gag-fun.9cache.com/photo/a8y2o4e_460s_v1.jpg"></div>
-      <div>32 points 16 Comment</div>
-      <div class="post-function">
-        <ul>
-          <li><a class="glyphicon glyphicon-chevron-up"></a></li>
-          <li><a class="glyphicon glyphicon-chevron-down"></a></li>
-          <li><a class="glyphicon glyphicon-comment"></a></li>
-        </ul>
-      </div>
-    </div>
+    <% @photos.each do |photo| %>
+        <div class="post">
+          <div class="title">
+            <%= link_to photo, id:"title" do %>
+                <%= photo.title %>
+            <% end %>
+          </div>
+          <div class="image">
+            <%= link_to photo do %>
+              <%= image_tag photo.image.url %>
+            <% end %>
+          </div>
+          <div>32 points 16 Comment</div>
+          <div class="post-function">
+            <ul>
+              <li><a class="glyphicon glyphicon-chevron-up"></a></li>
+              <li><a class="glyphicon glyphicon-chevron-down"></a></li>
+              <li><a class="glyphicon glyphicon-comment"></a></li>
+            </ul>
+          </div>
+        </div>
+    <% end %>
   </div>
   <div class="side-wrap">
     <div class="image"><img src="https://img-9gag-fun.9cache.com/photo/a8y2o4e_460s_v1.jpg"></div>
