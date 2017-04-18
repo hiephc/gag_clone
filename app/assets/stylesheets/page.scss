@@ -37,9 +37,29 @@
     li a:hover:not(.active) {
       background-color: #2E2F30;
     }
+
+    .post {
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+      border-bottom:1px solid #bbb;
+
+      .title {
+        margin-bottom: 10px;
+        #title {
+          color: black;
+          text-decoration: none;
+          font-size: large;
+        }
+      }
+
+      .image {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   .side-wrap {
+    padding-left: 50px;
     float: left;
     display: inline-block;
     width: -moz-calc(100% - 500px);
@@ -47,6 +67,13 @@
     width: calc(100% - 500px);
     height: 100%;
 
+    .image img {
+      height: 300px;
+
+    }
+    .image {
+      margin-bottom: 10px;
+    }
   }
 
 }
