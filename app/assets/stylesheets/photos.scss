@@ -71,8 +71,15 @@
       }
       .comment-list {
 
-        .comment-child {
-          margin-left: 50px;
+        .comment-root{
+
+          .commenter h{
+            font-weight: bold;
+          }
+
+          .comment-child {
+            margin-left: 50px;
+          }
         }
       }
     }
@@ -95,5 +102,4 @@
       margin-bottom: 10px;
     }
   }
-
 }

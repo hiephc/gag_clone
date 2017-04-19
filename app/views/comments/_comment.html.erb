@@ -1,6 +1,8 @@
 <div class="comment-root">
-  <%= comment.body %> -
-  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+  <div class="commenter"><h><%= comment.user.email %></h>
+    - <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+  </div>
+  <%= comment.body %>
 
   <%= form_for [comment, Comment.new] do |f| %>
       <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
@@ -9,8 +11,10 @@
 
   <div class="comment-child">
     <% comment.comments.each do |comment|%>
-       <div><%= comment.body %> -
-         <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small></div>
+        <div class="commenter"><h><%= comment.user.email %></h>
+          - <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+        </div>
+        <%= comment.body %>
     <% end %>
   </div>
 </div>
