@@ -12,12 +12,19 @@
               <%= image_tag photo.image.url %>
             <% end %>
           </div>
-          <div>32 points 16 Comment</div>
+          <div><%= photo.get_upvotes.size %>  points </div>
           <div class="post-function">
             <ul>
-              <li><a class="glyphicon glyphicon-chevron-up"></a></li>
-              <li><a class="glyphicon glyphicon-chevron-down"></a></li>
-              <li><a class="glyphicon glyphicon-comment"></a></li>
+              <li>
+                <%= link_to like_photo_path(photo),
+                            class: "glyphicon glyphicon-chevron-up", method: :put do %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to dislike_photo_path(photo),
+                            class: "glyphicon glyphicon-chevron-down", method: :put do %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>

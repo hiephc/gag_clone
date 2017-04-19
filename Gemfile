@@ -59,3 +59,4 @@ gem 'devise'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 
+gem 'acts_as_votable'
