@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   before_action :set_photo, only: [:show]
   def index
-    @photos = Photo.order('created_at ASC').all
+    @photos = Photo.order('created_at DESC').all
   end
 
   private
