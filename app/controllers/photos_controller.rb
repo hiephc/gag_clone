@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
