@@ -55,6 +55,27 @@
         margin-bottom: 10px;
       }
     }
+
+    .comment-wrap {
+
+      .comment-form {
+
+        #new_comment {
+          text-align: right;
+        }
+
+        #comment_body {
+          width: 700px;
+          height: 60px;
+        }
+      }
+      .comment-list {
+
+        .comment-child {
+          margin-left: 50px;
+        }
+      }
+    }
   }
 
   .side-wrap {
