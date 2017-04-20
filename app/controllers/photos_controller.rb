@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
@@ -63,6 +63,17 @@ class PhotosController < ApplicationController
     end
   end
 
+  def upvote
+    @photo = Photo.find(params[:id])
+    @photo.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @photo = Photo.find(params[:id])
+    @photo.downvote_by current_user
+    redirect_to :back
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
@@ -73,4 +84,5 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:title, :image)
     end
+
 end
