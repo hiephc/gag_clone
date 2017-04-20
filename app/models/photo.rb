@@ -1,6 +1,7 @@
 class Photo < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates_processing_of :image
+  has_many :comments, :as => :commentable
   validate :image_size_validation
   validates :image, presence: true
   validates :title, presence: true

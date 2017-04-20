@@ -15,6 +15,17 @@
         </ul>
       </div>
     </div>
+    <div class="comment-wrap">
+      <div class="comment-form">
+        <%= form_for [@photo, Comment.new] do |f| %>
+            <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+            <%= f.submit "Reply" %>
+        <% end %>
+      </div>
+      <div class="comment-list">
+        <%= render(partial: 'comments/comment', collection: @photo.comments) %>
+      </div>
+    </div>
   </div>
   <div class="side-wrap">
     <div class="image"><img src="https://img-9gag-fun.9cache.com/photo/a8y2o4e_460s_v1.jpg"></div>
