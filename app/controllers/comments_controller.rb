@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body).merge(user_id: current_user.id)
   end
 
+
   def find_commentable
     @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
     @commentable = Photo.find_by_id(params[:photo_id]) if params[:photo_id]
