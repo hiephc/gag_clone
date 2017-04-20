@@ -1,0 +1,7 @@
+<% @hotphotos.each do |hphoto| %>
+    <div class="image" style="">
+      <%= link_to hphoto do %>
+          <%= image_tag hphoto.image.url %>
+      <% end %>
+    </div>
+<% end %>
