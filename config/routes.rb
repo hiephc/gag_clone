@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  namespace :manages do
+    resources :photos
+    resources :users
+  end
   resources :photos do
     member do
       put "like", to: "photos#upvote"

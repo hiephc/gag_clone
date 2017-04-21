@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ninegag</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="header">
+  <nav class="navigation top-bar fixed">
+    <ul>
+      <li><%= link_to "9", root_path %></li>
+      <li>
+        <%= link_to manages_photos_path do %>
+            Mange Photos
+        <% end  %>
+      </li>
+      <li>
+        <%= link_to manages_users_path do %>
+            Mange Users
+        <% end  %>
+      </li>
+      <li style="float:right">
+        <% if user_signed_in? %>
+            <%= link_to destroy_admin_session_path, method: :delete do %>
+                Logout
+            <% end  %>
+        <% else %>
+            <%= link_to new_admin_session_path do %>
+                Login
+            <% end  %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</div>
+<%= yield %>
+</body>
+</html>
