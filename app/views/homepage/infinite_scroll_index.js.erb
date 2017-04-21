@@ -1,0 +1,4 @@
+<% photos_list  = j render 'photos_list' %>
+<% pagination_nav = j render 'pagination_nav' %>
+$("#photos").append("<%= photos_list %>");
+$("#pagination-nav").html("<%= pagination_nav %>");

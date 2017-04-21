@@ -1,36 +1,33 @@
 <div class="page">
   <div class="main-wrap">
-    <% @photos.each do |photo| %>
-        <div class="post">
-          <div class="title">
-            <%= link_to photo, id:"title" do %>
-                <%= photo.title %>
-            <% end %>
-          </div>
-          <div class="image">
-            <%= link_to photo do %>
-              <%= image_tag photo.image.url %>
-            <% end %>
-          </div>
-          <div><%= photo.get_upvotes.size %>  points </div>
-          <div class="post-function">
-            <ul>
-              <li>
-                <%= link_to like_photo_path(photo),
-                            class: "glyphicon glyphicon-chevron-up", method: :put do %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to dislike_photo_path(photo),
-                            class: "glyphicon glyphicon-chevron-down", method: :put do %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-    <% end %>
+    <div id="photos">
+      <div id="photos-list">
+        <%= render 'photos_list' %>
+      </div>
+      <div id="pagination-nav">
+        <%= render 'pagination_nav', remote: true %>
+      </div>
+    </div>
   </div>
+
   <div class="side-wrap">
     <%= render "layouts/sidewrap" %>
   </div>
 </div>
+<script>
+    $(document).ready(function () {
+        var detector = function () {
+            $(document).scroll(function () {
+                console.log('sup')
+                if(($(window).scrollTop() + $(window).height() == $(document).height())) {
+                    // prevent multiple event triggers.
+                    $('#photos').off('scroll');
+                    var nextLink = $('.next a');
+                    nextLink.click() // render new content via AJAX
+          //              .done(detector()); // reset event
+                }
+            });
+        };
+        detector();
+    });
+</script>

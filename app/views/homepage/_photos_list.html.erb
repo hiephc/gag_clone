@@ -1,0 +1,29 @@
+<% @photos.each do |photo| %>
+    <div class="post">
+      <div class="title">
+        <%= link_to photo, id:"title" do %>
+            <%= photo.title %>
+        <% end %>
+      </div>
+      <div class="image">
+        <%= link_to photo do %>
+            <%= image_tag photo.image.url %>
+        <% end %>
+      </div>
+      <div><%= photo.get_upvotes.size %>  points </div>
+      <div class="post-function">
+        <ul>
+          <li>
+            <%= link_to like_photo_path(photo),
+                        class: "glyphicon glyphicon-chevron-up", method: :put do %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_photo_path(photo),
+                        class: "glyphicon glyphicon-chevron-down", method: :put do %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+<% end %>
