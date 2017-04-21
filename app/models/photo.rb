@@ -3,10 +3,10 @@ class Photo < ApplicationRecord
   validates_processing_of :image
   acts_as_votable
 
+  belongs_to :user
   has_many :comments, :as => :commentable
   validate :image_size_validation
-  validates :image, presence: true
-  validates :title, presence: true
+  validates :image, :title, :user_id, presence: true
 
   private
   def image_size_validation

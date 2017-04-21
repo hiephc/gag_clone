@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :upvote, :downvote]
+  before_action :set_photo, only: [:show]
 
   # GET /photos
   # GET /photos.json
@@ -11,6 +11,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    @hotphotos= Photo.order(:cached_votes_up => :desc).first(4)
   end
 
   # GET /photos/new
@@ -82,7 +83,7 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:title, :image)
+      params.require(:photo).permit(:title, :image).merge(user_id: current_user.id)
     end
 
 end
